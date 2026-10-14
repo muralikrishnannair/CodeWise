@@ -1,0 +1,51 @@
+
+### GET: Retrieve all questions
+GET http://127.0.0.1:8000/questions/
+Accept: application/json
+
+###
+
+### POST: Create a question
+POST http://127.0.0.1:8000/questions/
+Content-Type: application/json
+
+{
+    "title": "python program to find the given number is prime or not",
+    "language": "python",
+    "difficulty_level": "easy",
+    "notes": "This is a sample question based on for loop in Python",
+    "topic": "loops",
+    "sample_input": "5",
+    "sample_output": "5 is a prime number",
+    "is_active": true
+}
+
+###
+
+### GET: Retrieve one question
+GET http://127.0.0.1:8000/question/1/
+Accept: application/json
+
+###
+
+### PUT: Update a question
+PUT http://127.0.0.1:8000/question/3/
+Content-Type: application/json
+
+{
+    "title": "python program to find the given number is Armstrong or not",
+    "language": "python",
+    "difficulty_level": "easy",
+    "notes": "This is a sample question based on while loop in Python",
+    "topic": "loops",
+    "sample_input": "153",
+    "sample_output": "153 is an Armstrong number",
+    "is_active": true
+}
+
+
+###
+
+### DELETE: Delete a question
+DELETE http://127.0.0.1:8000/question/3/
+Accept: application/json
