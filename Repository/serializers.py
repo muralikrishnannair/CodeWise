@@ -32,3 +32,23 @@ class QuestionSerializer(serializers.Serializer):
     sample_output = serializers.CharField()
 
     is_active = serializers.BooleanField(default=True)
+
+class SubmissionSerializer(serializers.Serializer):
+
+    answer=serializers.CharField()
+
+    question_id=serializers.IntegerField()
+
+    points=serializers.IntegerField(read_only=True)
+
+    owner=serializers.CharField()
+
+    submission_date=serializers.DateTimeField(read_only=True)
+
+    remarks=serializers.CharField(read_only=True)
+
+    def validate(self, validated_data):
+        question_id = validated_data.get("question_id")
+        if not Questions.objects.filter(id=question_id).exists():
+            raise serializers.ValidationError("Question does not exist...!")
+        return validated_data

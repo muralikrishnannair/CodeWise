@@ -5,18 +5,18 @@ Accept: application/json
 
 ###
 
-### POST: Create a question
+### POST: Add a palindrome question
 POST http://127.0.0.1:8000/questions/
 Content-Type: application/json
 
 {
-    "title": "python program to find the given number is prime or not",
+    "title": "Python program to check whether a string is a palindrome",
     "language": "python",
     "difficulty_level": "easy",
-    "notes": "This is a sample question based on for loop in Python",
-    "topic": "loops",
-    "sample_input": "5",
-    "sample_output": "5 is a prime number",
+    "notes": "Practice string manipulation and conditions",
+    "topic": "strings",
+    "sample_input": "madam",
+    "sample_output": "madam is a palindrome",
     "is_active": true
 }
 
@@ -49,3 +49,54 @@ Content-Type: application/json
 ### DELETE: Delete a question
 DELETE http://127.0.0.1:8000/question/3/
 Accept: application/json
+
+
+#API call for retrieve all submissions
+###
+GET http://127.0.0.1:8000/submissions/
+Accept: application/json
+
+
+#API call for submitting answers
+###
+POST http://127.0.0.1:8000/submissions/
+Content-Type:  application/json
+
+{
+    "answer":  "It is a prime number",
+    "question_id":5,
+    "owner": "Rahul"
+}
+
+
+### GET: Retrieve one submission
+GET http://127.0.0.1:8000/submission/1/
+Accept: application/json
+
+###
+
+### PUT: Update a submission
+PUT http://127.0.0.1:8000/submission/1/
+Content-Type: application/json
+
+{
+    "answer": "The number is prime",
+    "question_id": 5,
+    "owner": "Jon"
+}
+
+###
+
+### DELETE: Delete a submission
+DELETE http://127.0.0.1:8000/submission/1/
+Accept: application/json
+
+###
+PUT  http://127.0.0.1:8000/submission/1/evaluate/
+Content-Type: application/json
+
+{
+    "points":5,
+    "remarks":"average coding knowledge"
+}
+

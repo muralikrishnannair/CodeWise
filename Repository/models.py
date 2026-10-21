@@ -42,4 +42,18 @@ class Questions(models.Model):
 
     is_active=models.BooleanField(default=True)
 
+
+class Submissions(models.Model):
+
+    answer=models.TextField()
+
+    question_id = models.IntegerField()
+
+    points=models.PositiveIntegerField(null=True)
+
+    owner=models.CharField(max_length=100)
+
+    submission_date=models.DateTimeField(auto_now_add=True)
+    
+    remarks=models.TextField(null=True)
     
